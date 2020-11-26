@@ -138,6 +138,8 @@ const App = () => {
   const styler = {
     color: isBreak,
   };
+  //const beep = document.getElementById('beep');
+  //if (initBreak) beep.play();
 
   return(
     <Grid direction="column" container className="hannah-parent">
@@ -146,45 +148,46 @@ const App = () => {
       </Grid>
       <Grid xs={12} container spacing={0}>
         <Grid item xs={6}>
-          <p className="p-clock">Break Length</p>
+          <p id="break-label" className="p-clock">Break Length</p>
           <div className={classes.arrows} >
-            <IconButton onClick={() => handleDownMinuteBreak()} >
+            <IconButton id="break-decrement" onClick={() => handleDownMinuteBreak()} >
               <ArrowDownwardIcon fontSize="large" />
             </IconButton>
-              <span className="number-clock">{breakTime}</span>
-            <IconButton onClick={() => handleUpMinuteBreak()} >
+              <span id="break-length" className="number-clock">{breakTime}</span>
+            <IconButton id="break-increment" onClick={() => handleUpMinuteBreak()} >
               <ArrowUpwardIcon fontSize="large" />
             </IconButton>
           </div>
         </Grid>
         <Grid item xs={6}>
-          <p className="p-clock">Session Length</p>
+          <p id="session-label" className="p-clock">Session Length</p>
           <div className={classes.arrows}>
-            <IconButton onClick={() => handleDownMinuteSession()} >
+            <IconButton id="session-decrement" onClick={() => handleDownMinuteSession()} >
               <ArrowDownwardIcon fontSize="large" />
             </IconButton>
-              <span className="number-clock">{sessionTime}</span>
-            <IconButton onClick={() => handleUpMinuteSession()} >
+              <span id="session-length" className="number-clock">{sessionTime}</span>
+            <IconButton id="session-increment" onClick={() => handleUpMinuteSession()} >
               <ArrowUpwardIcon fontSize="large" />
             </IconButton>
           </div>
         </Grid>
       </Grid>
       <Grid item xs={12} className={initBreak ? classes.clockBoxRed : classes.clockBox}>
-        <h1 style={styler}>{initBreak ? 'Break' : 'Session'}</h1>
-        <h1 style={styler}>{clock}</h1>
+        <h1 id="timer-label" style={styler}>{initBreak ? 'Break' : 'Session'}</h1>
+        <h1 id="time-left" style={styler}>{clock}</h1>
       </Grid>
       <Grid item xs={12} className="hannah-container">
-        <IconButton aria-label="delete" onClick={() => handlerStartTimer()}>
+        <IconButton id="start_stop" aria-label="delete" onClick={() => handlerStartTimer()}>
           <PlayArrowIcon fontSize="large" />
         </IconButton>
         <IconButton aria-label="delete" onClick={() => handlerStopTimer()}>
           <PauseIcon fontSize="large" />
         </IconButton>
-        <IconButton aria-label="delete" onClick={() => handleResetAll()}>
+        <IconButton id="reset" aria-label="delete" onClick={() => handleResetAll()}>
           <RefreshIcon fontSize="large" />
         </IconButton>
       </Grid>
+      <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
     </Grid>
   )
 }
