@@ -1,0 +1,32 @@
+.hannah-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hannah-container > svg {
+  font-size: xx-large;
+}
+
+.hannah-parent {
+  align-items: center;
+  text-align: center;
+}
+
+.box-clock {
+  border: 2px black solid;
+}
+
+.p-clock {
+  font-family: system-ui;
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.number-clock {
+  font-family: system-ui;
+  font-size: xx-large;
+  font-weight: bold;
+  color: mediumblue;
+}
